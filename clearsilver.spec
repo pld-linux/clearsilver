@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n python-clearsilver
 %defattr(644,root,root,755)
 %doc README.python
-%{py_sitedir}/neo_cgi.so
+%attr(755,root,root) %{py_sitedir}/neo_cgi.so
 
 %files -n perl-ClearSilver
 %defattr(644,root,root,755)
