@@ -84,6 +84,8 @@ ClearSilver.
 %prep
 %setup -q
 
+find . -type f -print0 | xargs -0 perl -pi -e "s!/usr/local/bin!/usr/bin!g" 
+
 %build
 install /usr/share/automake/config.* .
 %{__aclocal}
@@ -106,6 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 	INSTALLDIRS=vendor
 
 %{__make} install -C python \
+	PYTHON_SITE=%{py_sitedir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__make} install -C perl \
@@ -133,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n python-clearsilver
 %defattr(644,root,root,755)
 %doc README.python
-%{_libdir}/python*/site-packages/neo_cgi.so
+%{py_sitedir}/neo_cgi.so
 
 %files -n perl-ClearSilver
 %defattr(644,root,root,755)
