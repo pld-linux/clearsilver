@@ -9,6 +9,8 @@ Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
 URL:		http://www.clearsilver.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	perl-ExtUtils-MakeMaker
+BuildRequires:	perl-devel
 BuildRequires:	python-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -88,7 +90,7 @@ install /usr/share/automake/config.* .
 %{__autoconf}
 %configure \
 	--enable-apache \
-	--enable-python=%{_bindir}/python \
+	--with-python=%{_bindir}/python \
 	--enable-perl \
 	--disable-csharp \
 	--disable-ruby \
