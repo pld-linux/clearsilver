@@ -6,6 +6,7 @@ Release:	0.1
 License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	6f4946d92eca41e17c9fc0373aee096a
 URL:		http://www.clearsilver.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
