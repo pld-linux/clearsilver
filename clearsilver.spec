@@ -1,12 +1,12 @@
 Summary:	ClearSilver HTML template system
 Summary(pl):	ClearSilver - system szablonów HTML
 Name:		clearsilver
-Version:	0.9.13
+Version:	0.9.14
 Release:	0.1
 License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	6f4946d92eca41e17c9fc0373aee096a
+# Source0-md5:	2161936b7828e8cbdc4f45812d15e3f6
 URL:		http://www.clearsilver.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -92,6 +92,7 @@ install /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
 %configure \
+	CFLAGS="%{rpmcflags} -fPIC" \
 	--enable-apache \
 	--with-python=%{_bindir}/python \
 	--enable-perl \
