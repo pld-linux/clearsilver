@@ -1,0 +1,36 @@
+--- clearsilver-0.9.14/cgi/Makefile.orig	2005-05-30 22:01:59.000000000 +0200
++++ clearsilver-0.9.14/cgi/Makefile	2005-05-30 22:10:42.000000000 +0200
+@@ -21,6 +21,9 @@
+ 
+ all: $(TARGETS)
+ 
++$(CGI_OBJ) $(STATIC_OBJ): %.o: %.c
++	$(CC) $(CFLAGS) -fPIC $(OUTPUT_OPTION) -c $<
++
+ $(CGI_LIB): $(CGI_OBJ)
+ 	$(AR) $@ $(CGI_OBJ)
+ 	$(RANLIB) $@
+--- clearsilver-0.9.14/cs/Makefile.orig	2005-05-30 22:01:59.000000000 +0200
++++ clearsilver-0.9.14/cs/Makefile	2005-05-30 22:11:56.000000000 +0200
+@@ -36,6 +36,9 @@
+ 
+ all: $(TARGETS)
+ 
++$(CS_OBJ): %.o: %.c
++	$(CC) $(CFLAGS) -fPIC $(OUTPUT_OPTION) -c $<
++
+ $(CS_LIB): $(CS_OBJ)
+ 	$(AR) $@ $(CS_OBJ)
+ 	$(RANLIB) $@
+--- clearsilver-0.9.14/util/Makefile.orig	2005-05-30 22:01:59.000000000 +0200
++++ clearsilver-0.9.14/util/Makefile	2005-05-30 22:13:05.000000000 +0200
+@@ -17,6 +17,9 @@
+ 
+ all: $(TARGETS)
+ 
++$(UTL_OBJ): %.o: %.c
++	$(CC) $(CFLAGS) -fPIC $(OUTPUT_OPTION) -c $<
++
+ $(UTL_LIB): $(UTL_OBJ)
+ 	$(AR) $@ $(UTL_OBJ)
+ 	$(RANLIB) $@
