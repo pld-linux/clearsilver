@@ -7,6 +7,7 @@ License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	2161936b7828e8cbdc4f45812d15e3f6
+Patch0:		%{name}-pic.patch
 URL:		http://www.clearsilver.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -84,6 +85,7 @@ ClearSilver.
 
 %prep
 %setup -q
+%patch0 -p1
 
 find . -type f -print0 | xargs -0 perl -pi -e "s!/usr/local/bin!/usr/bin!g" 
 
@@ -92,13 +94,12 @@ install /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
 %configure \
-	CFLAGS="%{rpmcflags} -fPIC" \
-	--enable-apache \
-	--with-python=%{_bindir}/python \
-	--enable-perl \
 	--disable-csharp \
+	--disable-java \
 	--disable-ruby \
-	--disable-java
+	--enable-apache \
+	--enable-perl \
+	--with-python=%{_bindir}/python
 
 %{__make}
 
@@ -127,13 +128,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CS_LICENSE INSTALL LICENSE README scripts/cs_lint.py contrib/cs-mode.el
 %attr(755,root,root) %{_bindir}/*
-# XXX
-%{_mandir}/man3/*.3.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/ClearSilver
 %{_libdir}/libneo_*.a
+%{_includedir}/ClearSilver
+%{_mandir}/man3/[!C]*.3*
 
 %files -n python-clearsilver
 %defattr(644,root,root,755)
@@ -143,8 +143,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n perl-ClearSilver
 %defattr(644,root,root,755)
 %{perl_vendorarch}/ClearSilver.pm
-%{perl_vendorarch}/auto/ClearSilver
-%{_mandir}/man3/*.3pm*
+%dir %{perl_vendorarch}/auto/ClearSilver
+%{perl_vendorarch}/auto/ClearSilver/ClearSilver.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/ClearSilver/ClearSilver.so
+%{_mandir}/man3/ClearSilver.3pm*
 
 #%files -n ruby
 #%defattr(644,root,root,755)
