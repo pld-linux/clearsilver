@@ -2,7 +2,7 @@ Summary:	ClearSilver HTML template system
 Summary(pl):	ClearSilver - system szablonów HTML
 Name:		clearsilver
 Version:	0.9.14
-Release:	0.1
+Release:	1
 License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
