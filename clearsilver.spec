@@ -1,5 +1,5 @@
 Summary:	ClearSilver HTML template system
-Summary(pl):	ClearSilver - system szablonów HTML
+Summary(pl.UTF-8):   ClearSilver - system szablonÃ³w HTML
 Name:		clearsilver
 Version:	0.9.14
 Release:	1
@@ -23,28 +23,28 @@ system. In both static content sites and dynamic HTML applications, it
 provides a separation between presentation code and application logic
 which makes working with your project easier.
 
-%description -l pl
-ClearSilver to szybki, potê¿ny i niezale¿ny od jêzyka system szablonów
-HTML. Zarówno w statycznych stronach HTML jak i dynamicznych
-aplikacjach pomaga oddzieliæ kod prezentacyjny od logiki aplikacji,
-co u³atwia pracê nad projektem.
+%description -l pl.UTF-8
+ClearSilver to szybki, potÄ™Å¼ny i niezaleÅ¼ny od jÄ™zyka system szablonÃ³w
+HTML. ZarÃ³wno w statycznych stronach HTML jak i dynamicznych
+aplikacjach pomaga oddzieliÄ‡ kod prezentacyjny od logiki aplikacji,
+co uÅ‚atwia pracÄ™ nad projektem.
 
 %package devel
 Summary:	ClearSilver development package
-Summary(pl):	Pakiet programistyczny ClearSilver
+Summary(pl.UTF-8):   Pakiet programistyczny ClearSilver
 Group:		Development/Libraries
 
 %description devel
 This package provides needed files to develop extension to
 ClearSilver.
 
-%description devel -l pl
-Ten pakiet dostarcza pliki potrzebne do tworzenia rozszerzeñ dla
+%description devel -l pl.UTF-8
+Ten pakiet dostarcza pliki potrzebne do tworzenia rozszerzeÅ„ dla
 ClearSilver.
 
 %package -n python-clearsilver
 Summary:	Neotonic ClearSilver Python Module
-Summary(pl):	Modu³ Pythona Neotonic ClearSilver
+Summary(pl.UTF-8):   ModuÅ‚ Pythona Neotonic ClearSilver
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -52,13 +52,13 @@ Requires:	%{name} = %{version}-%{release}
 This package provides a Python interface to the ClearSilver CGI kit
 and templating system.
 
-%description -n python-clearsilver -l pl
+%description -n python-clearsilver -l pl.UTF-8
 Ten pakiet dostarcza interfejs Pythona do zestawu CGI i systemu
-szablonów ClearSilver.
+szablonÃ³w ClearSilver.
 
 %package -n perl-ClearSilver
 Summary:	Neotonic ClearSilver Perl Module
-Summary(pl):	Modu³ Perla Neotonic ClearSilver
+Summary(pl.UTF-8):   ModuÅ‚ Perla Neotonic ClearSilver
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -66,12 +66,12 @@ Requires:	%{name} = %{version}-%{release}
 This package provides a Perl interface to the ClearSilver templating
 system.
 
-%description -n perl-ClearSilver -l pl
-Ten pakiet dostarcza interfejs Perla do systemu szablonów ClearSilver.
+%description -n perl-ClearSilver -l pl.UTF-8
+Ten pakiet dostarcza interfejs Perla do systemu szablonÃ³w ClearSilver.
 
 %package -n ruby-clearsilver
 Summary:	Neotonic ClearSilver Ruby Module
-Summary(pl):	Modu³ Ruby'ego Neotonic ClearSilver
+Summary(pl.UTF-8):   ModuÅ‚ Ruby'ego Neotonic ClearSilver
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -79,8 +79,8 @@ Requires:	%{name} = %{version}-%{release}
 This package provides a ruby interface to the ClearSilver templating
 system.
 
-%description -n ruby-clearsilver -l pl
-Ten pakiet dostarcza interfejs jêzyka Ruby do systemu szablonów
+%description -n ruby-clearsilver -l pl.UTF-8
+Ten pakiet dostarcza interfejs jÄ™zyka Ruby do systemu szablonÃ³w
 ClearSilver.
 
 %prep
