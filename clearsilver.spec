@@ -2,7 +2,7 @@ Summary:	ClearSilver HTML template system
 Summary(pl.UTF-8):	ClearSilver - system szablonów HTML
 Name:		clearsilver
 Version:	0.10.5
-Release:	2
+Release:	3
 License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
@@ -26,8 +26,8 @@ which makes working with your project easier.
 %description -l pl.UTF-8
 ClearSilver to szybki, potężny i niezależny od języka system szablonów
 HTML. Zarówno w statycznych stronach HTML jak i dynamicznych
-aplikacjach pomaga oddzielić kod prezentacyjny od logiki aplikacji,
-co ułatwia pracę nad projektem.
+aplikacjach pomaga oddzielić kod prezentacyjny od logiki aplikacji, co
+ułatwia pracę nad projektem.
 
 %package devel
 Summary:	ClearSilver development package
@@ -99,7 +99,7 @@ install /usr/share/automake/config.* .
 	--disable-ruby \
 	--enable-apache \
 	--enable-perl \
-	--with-python=%{_bindir}/python
+	--with-python=%{__python}
 
 %{__make}
 
@@ -120,6 +120,11 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{perl_archlib} \
 	$RPM_BUILD_ROOT%{perl_vendorarch}/auto/*{,/*{,/*}}/.packlist
+
+# what an ass putting it to lib32 dir
+%if "%{_lib}" != "lib"
+rm $RPM_BUILD_ROOT%{_prefix}/lib/python%{py_ver}/site-packages/neo_cgi.so
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -148,11 +153,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_vendorarch}/auto/ClearSilver/ClearSilver.so
 %{_mandir}/man3/ClearSilver.3pm*
 
-#%files -n ruby
-#%defattr(644,root,root,755)
-#{ruby_sitepath}/(ruby_version}/neo.rb
-#%attr(755,root,root) {ruby_sitepath}/(ruby_version}/$(ruby_arch}/hdf.so
+%if 0
+%files -n ruby
+%defattr(644,root,root,755)
+%{ruby_sitepath}/%{ruby_version}/neo.rb
+%attr(755,root,root) %{ruby_sitepath}/%{ruby_version}/%{ruby_arch}/hdf.so
 
-#%files -n mod_ecs
-#%defattr(644,root,root,755)
-#%attr(755,root,root) {apache_libexec}/mod_ecs.so
+%files -n mod_ecs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{apache_libexec}/mod_ecs.so
+%endif
