@@ -14,6 +14,8 @@ BuildRequires:	automake
 BuildRequires:	perl-ExtUtils-MakeMaker
 BuildRequires:	perl-devel
 BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
