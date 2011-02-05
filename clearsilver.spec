@@ -156,12 +156,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/ClearSilver.3pm*
 
 %if 0
-%files -n ruby
+%files -n ruby-clearsilver
 %defattr(644,root,root,755)
 %{ruby_sitepath}/%{ruby_version}/neo.rb
 %attr(755,root,root) %{ruby_sitepath}/%{ruby_version}/%{ruby_arch}/hdf.so
 
-%files -n mod_ecs
+%files -n apache-mod_ecs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{apache_libexec}/mod_ecs.so
 %endif
