@@ -153,7 +153,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{perl_vendorarch}/ClearSilver.pm
 %dir %{perl_vendorarch}/auto/ClearSilver
-%{perl_vendorarch}/auto/ClearSilver/ClearSilver.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/ClearSilver/ClearSilver.so
 %{_mandir}/man3/ClearSilver.3pm*
 
