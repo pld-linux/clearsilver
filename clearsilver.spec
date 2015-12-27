@@ -2,13 +2,14 @@ Summary:	ClearSilver HTML template system
 Summary(pl.UTF-8):	ClearSilver - system szablonów HTML
 Name:		clearsilver
 Version:	0.10.5
-Release:	13
+Release:	14
 License:	Apache License style
 Group:		Development/Libraries
 Source0:	http://www.clearsilver.net/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	b8c0c7fbe0ef5e06e0c935f134304d44
 Patch0:		%{name}-pic.patch
 Patch1:		format-security.patch
+Patch2:		variadic-macros.patch
 URL:		http://www.clearsilver.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,6 +91,7 @@ ClearSilver.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 find . -type f -print0 | xargs -0 perl -pi -e "s!/usr/local/bin!/usr/bin!g" 
 
